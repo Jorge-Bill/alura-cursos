@@ -1,9 +1,8 @@
-body{
-	padding-top: 70px;
-	background-color: #f4f4f4;
+body {
+	padding-top: 50px;
 }
 
-.navbar-default {
-	text-transform: uppercase;
-	letter-spacing: 0.1em;
+.principal {
+	padding: 40px 15px;
+	text-align: center;
 }

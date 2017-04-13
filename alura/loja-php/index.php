@@ -1,22 +1,35 @@
-<?php include_once	'header.php'; ?>
-	<div class="principal">
-	<?php echo "<h1 class='text-center'>Bem Vindo</h1>";?>
-	<?php 
+<?php
+require_once("cabecalho.php");
+require_once("logica-usuario.php");
+?>
 
-		$numeros = array(1,3,9,4,5,8,2,6,7,0);
+<h1>Bem vindo!</h1>
 
-		function mostraConteudoDoArray($numeros){
-		$soma = 0;
-        for ($i=0; $i < sizeof($numeros); $i++) { 
-            echo "<br/>Chave: " . $i . "<br/>Valor: " . $numeros[$i];
-        $soma = $soma + $numeros[$i];
-        }
-        return $soma;
-        echo $soma;
-    }
-    mostraConteudoDoArray($numeros);
+<?php
+if(usuarioEstaLogado()) {
+?>
+	<p class="text-success">Você está logado como <?= usuarioLogado() ?>. <a href="logout.php">Deslogar</a></p>
+<?php
+} else {
+?>
+	<h2>Login</h2>
+	<form action="login.php" method="post">
+		<table class="table">
+			<tr>
+				<td>Email</td>
+				<td><input class="form-control" type="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>Senha</td>
+				<td><input class="form-control" type="password" name="senha"></td>
+			</tr>
+			<tr>
+				<td><button class="btn btn-primary">Login</button></td>
+			</tr>
+		</table>
+	</form>
+<?php
+}
+?>
 
-	 ?>
-	</div>	
-<?php include_once	'footer.php'; ?>
-	
+<?php include("rodape.php"); ?>
